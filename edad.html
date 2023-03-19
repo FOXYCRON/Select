@@ -1,41 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Edad </title>
-
-<meta charset="UFT-8">
-
+  <title> Select </title>
+ 
 </head>
-<body bgcolor = #283CD6>
-
-<h1> Edad </h1>
-
-<b>
-<br> Ingrese su nombre:
- <input type=text id=n>
-<br> Ingrese año de nacimiento: <input type=text id=a>
-<b>
-<br>
-
-Edad:
-<input type=text id=r>
-<br>
-<input type=button value=confirmar onclick=MostrarEdad()>
-<br>
-<br>
+<body bgcolor = "#0DAEE6">
 
 <script>
- function MostrarEdad()
-
+function operacion()
 {
-let fecha,f1,f2,edad;
-fecha=new Date();
-f1=document.getElementById("a").value;
-f2=fecha.getFullYear();
-edad=f2-f1;
-
-document.getElementById("r").value=edad;
+  var seleccion=document.getElementById('select1');
+ if (seleccion.options[seleccion.selectedIndex].value==1)
+           {
+           var num1, num2, r;
+            num1= document.getElementById('n1').value;
+            num2= document.getElementById('n2').value;
+            r = parseInt(num1)+parseInt(num2);
+            document.getElementById('text1').value=r;
+           }
+ if (seleccion.options[seleccion.selectedIndex].value==2)
+           {
+           var num1, num2, r;
+            num1= document.getElementById('n1').value;
+            num2= document.getElementById('n2').value;
+            r = parseInt(num1)-parseInt(num2);
+            document.getElementById('text1').value=r;
+            }
+if (seleccion.options[seleccion.selectedIndex].value==3)
+{
+           var num1, num2, r;
+            num1= document.getElementById('n1').value;
+            num2= document.getElementById('n2').value;
+            r = parseInt(num1)*parseInt(num2);
+            document.getElementById('text1').value=r;
+            }
+if (seleccion.options[seleccion.selectedIndex].value==4)
+{
+           var num1, num2, r;
+            num1= document.getElementById('n1').value;
+            num2= document.getElementById('n2').value;
+            r = parseInt(num1)/parseInt(num2);
+            document.getElementById('text1').value=r;
+}
 }
 </script>
+
+<form>
+  numero 1:
+  <input id="n1">
+<br>
+ numero 2:
+  <input id="n2">
+<br>
+ 
+  <select id="select1" onChange="operacion()">
+    <option value="1">suma</option>
+    <option value="2">resta</option>
+    <option value="3">multiplicacion</option>
+    <option value="4">Division</option>
+  </select>
+  <br>
+  Resultado:<input type="text" id="text1"> <br>
+ 
+</form>
 </body>
 </html>
